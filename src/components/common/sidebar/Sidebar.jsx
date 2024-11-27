@@ -24,15 +24,9 @@ const Sidebar = () => {
       navigate(link);
     }
     dispatch(changeActiveLink(id));
-    if (id === "li-strategy") {
-      dispatch(changeExpanded("li-strategy"));
-    }
 
-    if (id === "li-risk-management") {
-      dispatch(changeExpanded("li-risk-management"));
-    }
-    if (id === "li-metrics-and-targets") {
-      dispatch(changeExpanded("li-metrics-and-targets"));
+    if (id === "configure") {
+      dispatch(changeExpanded("configure"));
     }
   }
 
@@ -90,25 +84,11 @@ const Sidebar = () => {
                             </a>
                           </li>
                         </ul>
-                        {item?.id === "li-strategy" && (
+                        {item?.id === "configure" && (
                           <i
                             className="fa fa-angle-down cheveron-icon"
                             id={item?.open ? "animate" : "non-animate"}
                             aria-hidden="true"
-                          ></i>
-                        )}
-                        {item?.id === "li-risk-management" && (
-                          <i
-                            className="fa fa-angle-down cheveron-icon"
-                            aria-hidden="true"
-                            id={item?.open ? "animate" : "non-animate"}
-                          ></i>
-                        )}
-                        {item?.id === "li-metrics-and-targets" && (
-                          <i
-                            className="fa fa-angle-down cheveron-icon"
-                            aria-hidden="true"
-                            id={item?.open ? "animate" : "non-animate"}
                           ></i>
                         )}
                       </div>
@@ -171,25 +151,11 @@ const Sidebar = () => {
                             </a>
                           </li>
                         </ul>
-                        {item?.id === "li-reports" && (
+                        {item?.id === "configure" && (
                           <i
                             className="fa fa-angle-down cheveron-icon"
                             id={item?.open ? "animate" : "non-animate"}
                             aria-hidden="true"
-                          ></i>
-                        )}
-                        {item?.id === "li-audit" && (
-                          <i
-                            className="fa fa-angle-down cheveron-icon"
-                            aria-hidden="true"
-                            id={item?.open ? "animate" : "non-animate"}
-                          ></i>
-                        )}
-                        {item?.id === "li-reporting-and-followup" && (
-                          <i
-                            className="fa fa-angle-down cheveron-icon"
-                            aria-hidden="true"
-                            id={item?.open ? "animate" : "non-animate"}
                           ></i>
                         )}
                       </div>

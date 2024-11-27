@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import TopBar from "../../../components/common/top-bar/TopBar";
+import TopBar from "../../components/common/top-bar/TopBar";
 import { Outlet } from "react-router-dom";
-import SideBar from "../../../components/common/sidebar/Sidebar";
+import SideBar from "../../components/common/sidebar/Sidebar";
 
 const Layout = () => {
   let { showSidebar } = useSelector((state) => state.common);

@@ -31,15 +31,8 @@ export default function SmallScreenSidebar() {
       navigate(link);
     }
     dispatch(changeActiveLink(id));
-    if (id === "li-strategy") {
-      dispatch(changeExpanded("li-strategy"));
-    }
-
-    if (id === "li-risk-management") {
-      dispatch(changeExpanded("li-risk-management"));
-    }
-    if (id === "li-metrics-and-targets") {
-      dispatch(changeExpanded("li-metrics-and-targets"));
+    if (id === "configure") {
+      dispatch(changeExpanded("configure"));
     }
   }
 

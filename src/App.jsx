@@ -9,21 +9,16 @@ import {
   InitialLoadSidebarActiveLink,
 } from "./global-redux/reducers/common/slice";
 import NotFound from "./components/common/not-found/index";
-import Dashboard from "./pages/dashboard/dashboard/Dashboard";
-import GovernanceStructure from "./pages/dashboard/governance-structure/governanceStructure";
-import MetricsCollection from "./pages/dashboard/metrics-and-targets/metrics-collection";
-import Targets from "./pages/dashboard/metrics-and-targets/targets";
-import Report from "./pages/dashboard/report/report";
-import Reporting from "./pages/dashboard/risk-managemnt/reporting";
-import Settings from "./pages/dashboard/setting/setting";
-import AnanlyseImpact from "./pages/dashboard/strategy/analyseImpact";
-import CollectData from "./pages/dashboard/strategy/collectData";
-import IdentifyRisksAndOpportunities from "./pages/dashboard/strategy/identifyRiskAndOpportunities";
-import Manage from "./pages/dashboard/strategy/manage";
-import Monitor from "./pages/dashboard/strategy/monitor";
-import InformationRequest from "./pages/dashboard/tasks/information-request/InformationRequest";
-import TaskManagement from "./pages/dashboard/tasks/task-management/TaskManagement";
-import Layout from "./pages/dashboard/layout/Layout";
+import Layout from "./components/layout/layout";
+import Alarms from "./pages/alarms/alarms";
+import Events from "./pages/events/events";
+import Help from "./pages/help/help";
+import Reports from "./pages/reports/reports";
+import Map from "./pages/map/map";
+import AppSettings from "./pages/configure/app-settings";
+import DatabaseSettings from "./pages/configure/database-settings";
+import EmailSettings from "./pages/configure/email-settings";
+import RemoveHosts from "./pages/configure/remove-hosts";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -55,36 +50,19 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="/" index element={<Dashboard />} />
+            <Route path="/" index element={<RemoveHosts />} />
+            <Route path="/app-settings" index element={<AppSettings />} />
             <Route
-              path="/governance-structure"
+              path="/database-settings"
               index
-              element={<GovernanceStructure />}
+              element={<DatabaseSettings />}
             />
-            <Route
-              path="/metrics-collection"
-              index
-              element={<MetricsCollection />}
-            />
-            <Route path="/targets" index element={<Targets />} />
-            <Route path="/report" index element={<Report />} />
-            <Route path="/reporting" index element={<Reporting />} />
-            <Route path="/setting" index element={<Settings />} />
-            <Route path="/analyse-impact" index element={<AnanlyseImpact />} />
-            <Route path="/collect-data" index element={<CollectData />} />
-            <Route
-              path="/identify-risks-and-opportunities"
-              index
-              element={<IdentifyRisksAndOpportunities />}
-            />
-            <Route path="/manage" index element={<Manage />} />
-            <Route path="/monitor" index element={<Monitor />} />
-            <Route
-              path="/information-request"
-              index
-              element={<InformationRequest />}
-            />
-            <Route path="/task-management" index element={<TaskManagement />} />
+            <Route path="/email-settings" index element={<EmailSettings />} />
+            <Route path="/alarms" index element={<Alarms />} />
+            <Route path="/help" index element={<Help />} />
+            <Route path="/events" index element={<Events />} />
+            <Route path="/map" index element={<Map />} />
+            <Route path="/reports" index element={<Reports />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
