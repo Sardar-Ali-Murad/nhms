@@ -80,25 +80,11 @@ export default function SmallScreenSidebar() {
                           </a>
                         </li>
                       </ul>
-                      {item?.id === "li-strategy" && (
+                      {item?.id === "configure" && (
                         <i
                           className="fa fa-angle-down cheveron-icon"
                           id={item?.open ? "animate" : "non-animate"}
                           aria-hidden="true"
-                        ></i>
-                      )}
-                      {item?.id === "li-risk-management" && (
-                        <i
-                          className="fa fa-angle-down cheveron-icon"
-                          aria-hidden="true"
-                          id={item?.open ? "animate" : "non-animate"}
-                        ></i>
-                      )}
-                      {item?.id === "li-metrics-and-targets" && (
-                        <i
-                          className="fa fa-angle-down cheveron-icon"
-                          aria-hidden="true"
-                          id={item?.open ? "animate" : "non-animate"}
                         ></i>
                       )}
                     </div>
@@ -160,25 +146,11 @@ export default function SmallScreenSidebar() {
                           </a>
                         </li>
                       </ul>
-                      {item?.id === "li-metrics-and-targets" && (
+                      {item?.id === "configure" && (
                         <i
                           className="fa fa-angle-down cheveron-icon"
                           id={item?.open ? "animate" : "non-animate"}
                           aria-hidden="true"
-                        ></i>
-                      )}
-                      {item?.id === "li-strategy" && (
-                        <i
-                          className="fa fa-angle-down cheveron-icon"
-                          aria-hidden="true"
-                          id={item?.open ? "animate" : "non-animate"}
-                        ></i>
-                      )}
-                      {item?.id === "li-risk-management" && (
-                        <i
-                          className="fa fa-angle-down cheveron-icon"
-                          aria-hidden="true"
-                          id={item?.open ? "animate" : "non-animate"}
                         ></i>
                       )}
                     </div>
@@ -219,22 +191,6 @@ export default function SmallScreenSidebar() {
               })}
             </ul>
           </nav>
-          <div className="smallSidebarYearDropDown mb-2">
-            <select
-              className="form-select h-40 "
-              aria-label="Default select example"
-            >
-              <option value="">Select Year</option>
-              <option value="2028">2028</option>
-              <option value="2027">2027</option>
-              <option value="2026">2026</option>
-              <option value="2025">2025</option>
-              <option value="2024">2024</option>
-              <option value="2023">2023</option>
-              <option value="2022">2022</option>
-              <option value="2021">2021</option>
-            </select>
-          </div>
         </div>
       </div>
     </Box>
