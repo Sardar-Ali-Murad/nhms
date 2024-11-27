@@ -1,0 +1,255 @@
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import { useDetectClickOutside } from "react-detect-click-outside";
+import "./Sidebar.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  changeActiveLink,
+  changeExpanded,
+} from "../../../global-redux/reducers/common/slice";
+
+export default function SmallScreenSidebar() {
+  let navigate = useNavigate();
+  let dispatch = useDispatch();
+  let { showSidebar, activeLink, menuItems, year } = useSelector(
+    (state) => state.common
+  );
+  const [open, setOpen] = React.useState(false);
+  const toggleDrawer = () => {
+    setOpen(false);
+  };
+  const userRef = useDetectClickOutside({
+    onTriggered: toggleDrawer,
+  });
+
+  function handleMainItemClick(link, id) {
+    if (link) {
+      navigate(link);
+    }
+    dispatch(changeActiveLink(id));
+    if (id === "li-strategy") {
+      dispatch(changeExpanded("li-strategy"));
+    }
+
+    if (id === "li-risk-management") {
+      dispatch(changeExpanded("li-risk-management"));
+    }
+    if (id === "li-metrics-and-targets") {
+      dispatch(changeExpanded("li-metrics-and-targets"));
+    }
+  }
+
+  function handleSubItemClick(link, id) {
+    navigate(link);
+    dispatch(changeActiveLink(id));
+  }
+
+  React.useEffect(() => {
+    setOpen(true);
+  }, [showSidebar]);
+
+  React.useEffect(() => {
+    if (year) {
+      localStorage.setItem("year", year);
+    }
+  }, [year]);
+
+  const DrawerList = (
+    <Box sx={{ width: 285 }} role="presentation" ref={userRef}>
+      <div className="left-sidebar" style={{ marginTop: "-50px" }}>
+        <div className="min-h-100">
+          <nav
+            className="sidebar-nav scroll-sidebar mt-4 pt-4"
+            data-simplebar=""
+          >
+            <ul id="sidebarnav" className="mt-5">
+              {menuItems?.slice(0, -2)?.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <div
+                      className={
+                        activeLink !== item?.id
+                          ? "link-wrap"
+                          : "link-wrap-active"
+                      }
+                      onClick={() => handleMainItemClick(item?.route, item?.id)}
+                    >
+                      <FontAwesomeIcon icon={item?.icon} />
+
+                      <ul>
+                        <li>
+                          <a>
+                            <span>{item?.label}</span>
+                          </a>
+                        </li>
+                      </ul>
+                      {item?.id === "li-strategy" && (
+                        <i
+                          className="fa fa-angle-down cheveron-icon"
+                          id={item?.open ? "animate" : "non-animate"}
+                          aria-hidden="true"
+                        ></i>
+                      )}
+                      {item?.id === "li-risk-management" && (
+                        <i
+                          className="fa fa-angle-down cheveron-icon"
+                          aria-hidden="true"
+                          id={item?.open ? "animate" : "non-animate"}
+                        ></i>
+                      )}
+                      {item?.id === "li-metrics-and-targets" && (
+                        <i
+                          className="fa fa-angle-down cheveron-icon"
+                          aria-hidden="true"
+                          id={item?.open ? "animate" : "non-animate"}
+                        ></i>
+                      )}
+                    </div>
+                    {item?.subMenu &&
+                      item?.subMenu?.map((subItem) => {
+                        return (
+                          <div
+                            key={subItem?.id}
+                            className={`sub-link-wrap ${
+                              item?.open === false && "sub-link-wrap-close"
+                            }`}
+                            onClick={() =>
+                              handleSubItemClick(subItem?.route, subItem?.id)
+                            }
+                          >
+                            <div
+                              className={
+                                activeLink !== subItem?.id
+                                  ? "link-wrap"
+                                  : "link-wrap-active"
+                              }
+                            >
+                              <FontAwesomeIcon icon={subItem?.icon} />
+
+                              <ul>
+                                <li>
+                                  <a>
+                                    <span>{subItem?.label}</span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        );
+                      })}
+                  </div>
+                );
+              })}
+            </ul>
+            <hr className="mt-5 ng-star-inserted" />
+            <ul id="sidebarnav" className="mt-5">
+              {menuItems?.slice(-2)?.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <div
+                      className={
+                        activeLink !== item?.id
+                          ? "link-wrap"
+                          : "link-wrap-active"
+                      }
+                      onClick={() => handleMainItemClick(item?.route, item?.id)}
+                    >
+                      <FontAwesomeIcon icon={item?.icon} />
+
+                      <ul>
+                        <li>
+                          <a>
+                            <span>{item?.label}</span>
+                          </a>
+                        </li>
+                      </ul>
+                      {item?.id === "li-metrics-and-targets" && (
+                        <i
+                          className="fa fa-angle-down cheveron-icon"
+                          id={item?.open ? "animate" : "non-animate"}
+                          aria-hidden="true"
+                        ></i>
+                      )}
+                      {item?.id === "li-strategy" && (
+                        <i
+                          className="fa fa-angle-down cheveron-icon"
+                          aria-hidden="true"
+                          id={item?.open ? "animate" : "non-animate"}
+                        ></i>
+                      )}
+                      {item?.id === "li-risk-management" && (
+                        <i
+                          className="fa fa-angle-down cheveron-icon"
+                          aria-hidden="true"
+                          id={item?.open ? "animate" : "non-animate"}
+                        ></i>
+                      )}
+                    </div>
+                    {item?.subMenu &&
+                      item?.subMenu?.map((subItem) => {
+                        return (
+                          <div
+                            key={subItem?.id}
+                            className={`sub-link-wrap ${
+                              item?.open === false && "sub-link-wrap-close"
+                            }`}
+                            onClick={() =>
+                              handleSubItemClick(subItem?.route, subItem?.id)
+                            }
+                          >
+                            <div
+                              className={
+                                activeLink !== subItem?.id
+                                  ? "link-wrap"
+                                  : "link-wrap-active"
+                              }
+                            >
+                              <FontAwesomeIcon icon={subItem?.icon} />
+
+                              <ul>
+                                <li>
+                                  <a>
+                                    <span>{subItem?.label}</span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        );
+                      })}
+                  </div>
+                );
+              })}
+            </ul>
+          </nav>
+          <div className="smallSidebarYearDropDown mb-2">
+            <select
+              className="form-select h-40 "
+              aria-label="Default select example"
+            >
+              <option value="">Select Year</option>
+              <option value="2028">2028</option>
+              <option value="2027">2027</option>
+              <option value="2026">2026</option>
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </Box>
+  );
+
+  return (
+    <div>
+      <Drawer open={open}>{DrawerList}</Drawer>
+    </div>
+  );
+}
