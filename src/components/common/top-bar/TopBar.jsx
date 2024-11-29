@@ -1,7 +1,6 @@
 import React from "react";
 import "./TopBar.css";
 import user1 from "../../../assets/user-1.jpg";
-import logo from "../../../assets/light-logo-.png";
 import { changeShowSidebar } from "../../../global-redux/reducers/common/slice";
 import { useDetectClickOutside } from "react-detect-click-outside";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,10 +19,6 @@ const TopBar = () => {
   return (
     <header className="app-header shadow-sm mb-3 px-0 ">
       <nav className="navbar navbar-expand-lg navbar-light  navbarWrapMain">
-        <div>
-          <img src={logo} className="light-logo" width="110" alt="" />
-        </div>
-
         <button
           className="btn  ml-100"
           onClick={() => dispatch(changeShowSidebar(!showSidebar))}
