@@ -43,9 +43,9 @@ const LinearHierarchyNetwork = () => {
       },
       nodes: {
         shape: "circle",
-        size: 20,
+        size: 10,
         font: {
-          size: 14,
+          size: 10,
         },
       },
       edges: {
@@ -82,7 +82,7 @@ const LinearHierarchyNetwork = () => {
   return (
     <div
       ref={containerRef}
-      style={{ width: "100%", height: "600px", border: "1px solid lightgray" }}
+      style={{ width: "100%", height: "700px", border: "1px solid lightgray" }}
     ></div>
   );
 };

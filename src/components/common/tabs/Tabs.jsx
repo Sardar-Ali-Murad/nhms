@@ -73,11 +73,6 @@ export default function BasicTabs() {
             {...a11yProps(2)}
             onClick={() => dispatch(changeShowSidebar(!showSidebar))}
           />
-          <Tab
-            label="Help"
-            {...a11yProps(2)}
-            onClick={() => dispatch(changeShowSidebar(!showSidebar))}
-          />
         </Tabs>
       </Box>
     </Box>
