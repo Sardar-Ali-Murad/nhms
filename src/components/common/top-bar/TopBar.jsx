@@ -1,17 +1,14 @@
 import React from "react";
 import "./TopBar.css";
 import user1 from "../../../assets/user-1.jpg";
-import { changeShowSidebar } from "../../../global-redux/reducers/common/slice";
 import { useDetectClickOutside } from "react-detect-click-outside";
-import { useDispatch, useSelector } from "react-redux";
+import Tabs from "../tabs/Tabs";
 
 const TopBar = () => {
-  const dispatch = useDispatch();
   const [showUserProfile, setShowUserProfile] = React.useState(false);
   function closeUserProfileDropDown() {
     setShowUserProfile(false);
   }
-  const { showSidebar } = useSelector((state) => state.common);
   const userRef = useDetectClickOutside({
     onTriggered: closeUserProfileDropDown,
   });
@@ -19,21 +16,7 @@ const TopBar = () => {
   return (
     <header className="app-header shadow-sm mb-3 px-0 ">
       <nav className="navbar navbar-expand-lg navbar-light  navbarWrapMain">
-        <button
-          className="btn  ml-100"
-          onClick={() => dispatch(changeShowSidebar(!showSidebar))}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            className="bi bi-list"
-            viewBox="0 0 16 16"
-          >
-            <path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-          </svg>
-        </button>
+        <Tabs />
 
         <div
           className="collapse navbar-collapse justify-content-end"

@@ -9,6 +9,7 @@ body {
 body {
   margin: 0;
   overflow-x: hidden;
+  font-family: "Poppins", sans-serif !important;
 }
 
 .css-1rgmeur {
@@ -18,7 +19,14 @@ body {
   font-family: "Poppins", sans-serif !important;
 }
 
-.justify-end{
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.justify-end {
   justify-content: end;
 }
 
@@ -875,7 +883,6 @@ span[aria-label="Insert Ordered List"] .jodit-toolbar-button__trigger {
   text-overflow: ellipsis;
 }
 
-
 #SideComponents {
   width: 76%;
   height: 100%;
@@ -891,7 +898,6 @@ span[aria-label="Insert Ordered List"] .jodit-toolbar-button__trigger {
   margin-top: 10px;
   transition: all 0.5s linear;
 }
-
 
 @media screen and (max-width: 1000px) {
   .fxt-shape {
