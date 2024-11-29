@@ -1,7 +1,8 @@
 import React from "react";
+import Table from "../../components/common/table/table";
 
 const Help = () => {
-  return <div>help</div>;
+  return <Table/>
 };
 
 export default Help;

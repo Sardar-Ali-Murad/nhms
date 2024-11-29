@@ -1,7 +1,8 @@
 import React from "react";
+import Table from "../../components/common/table/table";
 
 const EmailSettings = () => {
-  return <div>email-settings</div>;
+  return <Table />;
 };
 
 export default EmailSettings;

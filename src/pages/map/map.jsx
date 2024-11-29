@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import Table from "../../components/common/table/table";
 
 const Map = () => {
-  return (
-    <div>map</div>
-  )
-}
+  return <Table />;
+};
 
-export default Map
+export default Map;
