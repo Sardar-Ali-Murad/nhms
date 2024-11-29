@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { Network } from "vis-network";
+import { changeOpen } from "../../../global-redux/reducers/common/slice";
+import { useDispatch } from "react-redux";
 
 const LinearHierarchyNetwork = () => {
+  const dispatch = useDispatch();
   const containerRef = useRef(null); // Reference for the network container
 
   useEffect(() => {
@@ -67,6 +70,16 @@ const LinearHierarchyNetwork = () => {
       { nodes, edges },
       options
     );
+
+    network.on("click", function (event) {
+      const { nodes: clickedNodes } = event;
+
+      // Check if a node was clicked
+      if (clickedNodes.length > 0) {
+        dispatch(changeOpen());
+        // You can perform other actions here, such as updating state or opening a modal
+      }
+    });
 
     // Cleanup on component unmount
     return () => {

@@ -101,6 +101,7 @@ const initialState = {
   resetRichTextFieldState: false,
   // API STATES
   loading: false,
+  open: false,
 };
 
 export const slice = createSlice({
@@ -109,6 +110,18 @@ export const slice = createSlice({
   reducers: {
     changeShowSidebar: (state, action) => {
       state.showSidebar = action.payload;
+      if (action.payload === true) {
+        state.open = false;
+      }
+    },
+    changeOpen: (state) => {
+      state.open = !state.open;
+      if (!state.open === true) {
+        state.showSidebar = false;
+      }
+    },
+    closeOpen: (state) => {
+      state.open = false;
     },
     changeCommonRichTextFieldState: (state, action) => {
       state.resetRichTextFieldState = action.payload;
@@ -154,6 +167,8 @@ export const {
   changeYear,
   changeCommonRichTextFieldState,
   InitialLoadSidebarActiveLink,
+  changeOpen,
+  closeOpen,
 } = slice.actions;
 
 export default slice.reducer;

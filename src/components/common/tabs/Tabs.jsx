@@ -58,14 +58,26 @@ export default function BasicTabs() {
             },
           }}
         >
-          <Tab label="Configure" {...a11yProps(0)} />
+          <Tab
+            label="Configure"
+            {...a11yProps(0)}
+            onClick={() => dispatch(changeShowSidebar(!showSidebar))}
+          />
           <Tab
             label="View"
             {...a11yProps(1)}
             onClick={() => dispatch(changeShowSidebar(!showSidebar))}
           />
-          <Tab label="Analyze" {...a11yProps(2)} />
-          <Tab label="Help" {...a11yProps(2)} />
+          <Tab
+            label="Analyze"
+            {...a11yProps(2)}
+            onClick={() => dispatch(changeShowSidebar(!showSidebar))}
+          />
+          <Tab
+            label="Help"
+            {...a11yProps(2)}
+            onClick={() => dispatch(changeShowSidebar(!showSidebar))}
+          />
         </Tabs>
       </Box>
     </Box>
