@@ -1,6 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
 import Divider from "@mui/material/Divider";
 import { useSelector, useDispatch } from "react-redux";
 import { closeOpen } from "../../../global-redux/reducers/common/slice";
@@ -9,11 +8,31 @@ export default function TemporaryDrawer() {
   const dispatch = useDispatch();
   const { open } = useSelector((state) => state?.common);
   const DrawerList = (
-    <Box sx={{ width: 320 }} role="presentation" className="p-3">
-      <div className="mb-2">
+    <Box
+      sx={{
+        width: 320,
+        position: "fixed",
+        zIndex: "1000",
+        background: "white",
+        height: "100vh",
+        borderLeft: "1px solid lightGrey",
+        bottom: "0px",
+        top: "0px",
+      }}
+      role="presentation"
+      className={`p-3 ${open && "open-righ-drawer"} righ-drawer`}
+    >
+      <div
+        className="mb-2 d-flex space-between"
+        style={{ justifyContent: "space-between" }}
+      >
         <h5>Satellite Info</h5>
-        <Divider />
+        <i
+          class="fa fa-close text-danger f-30 cursor-pointer"
+          onClick={() => dispatch(closeOpen())}
+        ></i>
       </div>
+      <Divider />
       <div>
         <div className="flex items-center gap-2 drawer-flex">
           <h4>Device Name :</h4>
@@ -77,9 +96,9 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      <Drawer open={open} anchor="right" onClick={() => dispatch(closeOpen())}>
-        {DrawerList}
-      </Drawer>
+      {/* <Drawer open={open} anchor="right" onClick={() => dispatch(closeOpen())}> */}
+      {DrawerList}
+      {/* </Drawer> */}
     </div>
   );
 }

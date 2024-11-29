@@ -110,15 +110,9 @@ export const slice = createSlice({
   reducers: {
     changeShowSidebar: (state, action) => {
       state.showSidebar = action.payload;
-      if (action.payload === true) {
-        state.open = false;
-      }
     },
     changeOpen: (state) => {
-      state.open = !state.open;
-      if (!state.open === true) {
-        state.showSidebar = false;
-      }
+      state.open = true;
     },
     closeOpen: (state) => {
       state.open = false;

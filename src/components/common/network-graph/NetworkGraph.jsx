@@ -5,10 +5,8 @@ import { useDispatch } from "react-redux";
 
 const LinearHierarchyNetwork = () => {
   const dispatch = useDispatch();
-  const containerRef = useRef(null); // Reference for the network container
-
+  const containerRef = useRef(null);
   useEffect(() => {
-    // Define the nodes with hierarchical structure
     const nodes = [
       { id: 1, label: "Parent Node", level: 0, color: "#ff5722" },
       { id: 2, label: "Child Node 1", level: 1, color: "#4caf50" },
@@ -22,7 +20,6 @@ const LinearHierarchyNetwork = () => {
       { id: 10, label: "Leaf Node 4", level: 3, color: "#ffc107" },
     ];
 
-    // Define the edges between nodes (updated to reflect new child relationships)
     const edges = [
       { from: 1, to: 2 },
       { from: 1, to: 3 },
@@ -35,18 +32,17 @@ const LinearHierarchyNetwork = () => {
       { from: 8, to: 10 },
     ];
 
-    // Define the options for hierarchical layout
     const options = {
       layout: {
         hierarchical: {
-          direction: "UD", // "UD" for top-down, "LR" for left-right
+          direction: "UD",
           sortMethod: "hubsize",
           levelSeparation: 150,
           nodeSpacing: 200,
         },
       },
       nodes: {
-        shape: "circle", // Set node shape to circle
+        shape: "circle",
         size: 20,
         font: {
           size: 14,
@@ -61,10 +57,9 @@ const LinearHierarchyNetwork = () => {
           forceDirection: "vertical",
         },
       },
-      physics: false, // Disable physics for a fixed hierarchical layout
+      physics: false,
     };
 
-    // Create the network
     const network = new Network(
       containerRef.current,
       { nodes, edges },
@@ -74,14 +69,11 @@ const LinearHierarchyNetwork = () => {
     network.on("click", function (event) {
       const { nodes: clickedNodes } = event;
 
-      // Check if a node was clicked
       if (clickedNodes.length > 0) {
         dispatch(changeOpen());
-        // You can perform other actions here, such as updating state or opening a modal
       }
     });
 
-    // Cleanup on component unmount
     return () => {
       network.destroy();
     };

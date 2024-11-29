@@ -6,10 +6,10 @@ import SideBar from "../../components/common/sidebar/Sidebar";
 import RightDrawer from ".././common/right-drawer/RightDrawer";
 
 const Layout = () => {
-  let { showSidebar, open } = useSelector((state) => state.common);
+  let { showSidebar } = useSelector((state) => state.common);
   return (
     <React.Fragment>
-      {open && <RightDrawer />}
+      <RightDrawer />
       <TopBar />
       <div className="flex">
         <SideBar />
