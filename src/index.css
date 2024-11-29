@@ -213,6 +213,9 @@ button:not(:disabled) {
 .h-150 {
   height: 150px !important;
 }
+.h-70 {
+  height: 70px !important;
+}
 .w-190 {
   width: 190px !important;
 }
