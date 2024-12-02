@@ -3,13 +3,11 @@ import { useSelector } from "react-redux";
 import TopBar from "../../components/common/top-bar/TopBar";
 import { Outlet } from "react-router-dom";
 import SideBar from "../../components/common/sidebar/Sidebar";
-import RightDrawer from ".././common/right-drawer/RightDrawer";
 
 const Layout = () => {
   let { showSidebar } = useSelector((state) => state.common);
   return (
     <React.Fragment>
-      <RightDrawer />
       <TopBar />
       <div className="flex">
         <SideBar />

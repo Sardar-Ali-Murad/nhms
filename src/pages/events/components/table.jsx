@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import moment from "moment";
 
-const Table = ({ hosts }) => {
+const Table = ({ events }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const itemsPerPage = 15;
 
-  const totalPages = Math.ceil(hosts.length / itemsPerPage);
+  const totalPages = Math.ceil(events.length / itemsPerPage);
 
-  const currentHosts = hosts.slice(
+  const currentEvents = events.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -38,7 +38,7 @@ const Table = ({ hosts }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {currentHosts.map((row, index) => (
+                  {currentEvents.map((row, index) => (
                     <tr key={index}>
                       <td>{row?.eventid}</td>
                       <td>{row.group}</td>
