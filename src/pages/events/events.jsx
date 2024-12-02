@@ -1,10 +1,21 @@
-import React from 'react'
-import NetworkGraph from "../../components/common/network-graph/NetworkGraph";
+import React from "react";
+import { setupGetAllEvents } from "../../global-redux/reducers/common/slice";
+import { useDispatch, useSelector } from "react-redux";
+import { CircularProgress } from "@mui/material";
 
 const Events = () => {
-  return (
-    <NetworkGraph/>
-  )
-}
+  const dispatch = useDispatch();
+  const { events, loading } = useSelector((state) => state?.common);
+  console.log(events);
 
-export default Events
+  React.useEffect(() => {
+    dispatch(setupGetAllEvents());
+  }, [dispatch]);
+  return (
+    <div>
+      {loading ? <CircularProgress /> : <p>Event Page...</p>}
+    </div>
+  );
+};
+
+export default Events;
