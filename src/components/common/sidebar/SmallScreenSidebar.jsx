@@ -15,7 +15,7 @@ import {
 export default function SmallScreenSidebar() {
   let navigate = useNavigate();
   let dispatch = useDispatch();
-  let { showSidebar, activeLink, menuItems, year } = useSelector(
+  let { showSidebar, activeLink, menuItems } = useSelector(
     (state) => state.common
   );
   const [open, setOpen] = React.useState(false);
@@ -44,12 +44,6 @@ export default function SmallScreenSidebar() {
   React.useEffect(() => {
     setOpen(true);
   }, [showSidebar]);
-
-  React.useEffect(() => {
-    if (year) {
-      localStorage.setItem("year", year);
-    }
-  }, [year]);
 
   const DrawerList = (
     <Box sx={{ width: 285 }} role="presentation" ref={userRef}>
