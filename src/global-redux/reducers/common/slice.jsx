@@ -1,4 +1,4 @@
-import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getAllHosts, getAllEvents } from "./thunk";
 
 import {
@@ -169,7 +169,7 @@ export const slice = createSlice({
       .addCase(setupGetAllHosts.pending, (state) => {
         state.loading = true;
       })
-      .addCase(setupGetAllHosts.fulfilled, (state) => {
+      .addCase(setupGetAllHosts.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.hosts = payload?.data;
       })
