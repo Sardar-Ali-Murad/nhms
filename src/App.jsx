@@ -18,7 +18,7 @@ import Map from "./pages/map/map";
 import AppSettings from "./pages/configure/app-settings";
 import DatabaseSettings from "./pages/configure/database-settings";
 import EmailSettings from "./pages/configure/email-settings";
-import RemoveHosts from "./pages/configure/remove-hosts";
+import RemoveHosts from "./pages/configure/remove-host/remove-hosts";
 
 const App = () => {
   const dispatch = useDispatch();
