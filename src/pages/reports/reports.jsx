@@ -1,11 +1,7 @@
-import React from 'react'
-import NetworkGraph from "../../components/common/network-graph/NetworkGraph";
-
+import React from "react";
 
 const Reports = () => {
-  return (
-    <NetworkGraph/>
-  )
-}
+  return <p>Reports Page...</p>;
+};
 
-export default Reports
+export default Reports;

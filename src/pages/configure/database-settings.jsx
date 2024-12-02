@@ -1,10 +1,7 @@
-import React from 'react'
-import NetworkGraph from "../../components/common/network-graph/NetworkGraph";
+import React from "react";
 
 const DatabaseSettings = () => {
-  return (
-    <NetworkGraph/>
-  )
-}
+  return <p>Database Settings Page...</p>;
+};
 
-export default DatabaseSettings
+export default DatabaseSettings;

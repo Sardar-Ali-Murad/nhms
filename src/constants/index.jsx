@@ -1,3 +1,3 @@
-const baseUrl = "https://healthy-wolf-certainly.ngrok-free.app";
+const baseUrl = "http://nhms.ngrok-free.app";
 
 export { baseUrl };

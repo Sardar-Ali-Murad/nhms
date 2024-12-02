@@ -88,16 +88,8 @@ let menuItems = [
 const initialState = {
   showSidebar: true,
   activeLink: "li-dashboard",
-  businessObjectiveDialog: false,
   activeExpandId: "li-audit",
-  isExpandedAuditOpen: false,
-  isExpandedReportsOpen: false,
   menuItems: menuItems,
-  kickOffRequest: "",
-  company: localStorage.getItem("company") || "",
-  year: localStorage.getItem("year") || "",
-  allCompanies: [],
-  allUsers: [],
   resetRichTextFieldState: false,
   // API STATES
   loading: false,
@@ -117,24 +109,11 @@ export const slice = createSlice({
     closeOpen: (state) => {
       state.open = false;
     },
-    changeCommonRichTextFieldState: (state, action) => {
-      state.resetRichTextFieldState = action.payload;
-    },
-    changeCompany: (state, action) => {
-      state.company = action.payload;
-    },
-    changeYear: (state, action) => {
-      state.year = action.payload;
-    },
+
     changeActiveLink: (state, action) => {
       state.activeLink = action.payload;
     },
-    showBusinessObjectiveDialog: (state, action) => {
-      state.businessObjectiveDialog = action.payload;
-    },
-    changeKickOffRequest: (state, action) => {
-      state.kickOffRequest = action.payload;
-    },
+
     InitialLoadSidebarActiveLink: (state, action) => {
       state.menuItems = state.menuItems.map((item) =>
         item?.id === action.payload ? { ...item, open: true } : item
@@ -153,13 +132,8 @@ export const slice = createSlice({
 
 export const {
   changeShowSidebar,
-  changeActiveLink,
-  showBusinessObjectiveDialog,
   changeExpanded,
-  changeKickOffRequest,
-  changeCompany,
-  changeYear,
-  changeCommonRichTextFieldState,
+  changeActiveLink,
   InitialLoadSidebarActiveLink,
   changeOpen,
   closeOpen,
