@@ -8,7 +8,7 @@ const NetworkGraph = ({ hosts }) => {
   const [selectedNode, setSelectedNode] = useState(null);
 
   useEffect(() => {
-    const nodes = hosts.map((host, index) => ({
+    const nodes = hosts.slice(0, 30).map((host, index) => ({
       id: index + 1,
       label: host.name || `Node ${index + 1}`,
       color: "#4caf50",

@@ -29,7 +29,7 @@ export default function RightDrawer({ open, setOpen, data }) {
         ></i>
       </div>
       <Divider />
-      <div>
+      <div className="mt-2">
         {data ? (
           <>
             {Object.entries(data).map(([key, value]) => (

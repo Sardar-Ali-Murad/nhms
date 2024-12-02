@@ -874,6 +874,7 @@ span[aria-label="Insert Ordered List"] .jodit-toolbar-button__trigger {
 #SideComponents > div:first-child {
   min-width: 500px;
   overflow-x: auto;
+  min-height: 100vh;
 }
 
 #smallScreenSidebar {
