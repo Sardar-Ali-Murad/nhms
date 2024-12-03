@@ -27,38 +27,27 @@ const Table = ({ hosts }) => {
               <table className="table w-100 table-bordered table-hover rounded equal-columns">
                 <thead className="bg-secondary text-white">
                   <tr>
-                    <th className="sr-col">Event Id</th>
-                    <th>Group</th>
-                    <th>Host Id</th>
-                    <th>Ip Id</th>
-                    <th>Mac Id</th>
-                    <th>Type</th>
-                    <th>Utc Time</th>
-                    <th>Description</th>
+                    <th className="sr-col">Host Id</th>
+                    <th>Name</th>
+                    <th>DB Name</th>
+                    <th>IP Address</th>
+                    <th>Key Code</th>
+                    <th>Time Zone</th>
+                    <th>pk</th>
+                    <th>Expire Date</th>
                   </tr>
                 </thead>
                 <tbody>
                   {currentHosts.map((row, index) => (
                     <tr key={index}>
-                      <td>{row?.eventid}</td>
-                      <td>{row.group}</td>
-                      <td>{row.hostid}</td>
-                      <td>{row.ipid}</td>
-                      <td>{row.macid}</td>
-                      <td>{row.type}</td>
-                      <td>
-                        {moment(row.utctime).format("YYYY-MM-DD HH:mm:ss")}
-                      </td>
-                      <td>
-                        <textarea
-                          className="form-control h-70"
-                          placeholder="Enter Reason"
-                          maxLength={1500}
-                          value={row.description}
-                          disabled
-                          readOnly
-                        ></textarea>
-                      </td>
+                      <td>{row?.hostid}</td>
+                      <td>{row.name}</td>
+                      <td>{row.dbname}</td>
+                      <td>{row.ipaddress}</td>
+                      <td>{row.keycode}</td>
+                      <td>{row.timezone}</td>
+                      <td>{row.pk}</td>
+                      <td>{row.expiredate}</td>
                     </tr>
                   ))}
                 </tbody>

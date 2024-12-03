@@ -32,9 +32,9 @@ const NetworkGraph = ({ hosts }) => {
       },
       nodes: {
         shape: "circle",
-        size: 20,
+        size: 50,
         font: {
-          size: 12,
+          size: 40,
         },
       },
       edges: {

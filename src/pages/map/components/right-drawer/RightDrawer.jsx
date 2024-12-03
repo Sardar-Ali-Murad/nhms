@@ -14,6 +14,7 @@ export default function RightDrawer({ open, setOpen, data }) {
         borderLeft: "1px solid lightGrey",
         bottom: "0px",
         top: "0px",
+        overflowY: "auto",
       }}
       role="presentation"
       className={`p-3 ${open && "open-righ-drawer"} righ-drawer`}
