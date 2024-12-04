@@ -7,12 +7,13 @@ const AddHostDialog = ({ setAddHostDialog }) => {
 
       <div className="row mb-2">
         <div className="col-lg-2 label-text">Host IP :</div>
-        <div className="col-lg-8 mb-4">
+        <div className="col-lg-8">
           <input
             id="subject"
             name="subject"
             type="text"
             className="form-control"
+            placeholder="28"
           ></input>
         </div>
       </div>
@@ -24,7 +25,27 @@ const AddHostDialog = ({ setAddHostDialog }) => {
             name="subject"
             type="text"
             className="form-control"
+            placeholder="local"
           ></input>
+        </div>
+      </div>
+      <div className="row mb-2">
+        <div className="col-lg-2 label-text">Description</div>
+        <div className="col-lg-8">
+          <div className="form-group">
+            <textarea
+              type="text"
+              id="fname"
+              className="form-control h-400"
+              name="fname"
+              placeholder="Add detail here"
+              required="required"
+              maxLength="2000"
+            ></textarea>
+            <label className="word-limit-info label-text">
+              Maximum 2000 characters
+            </label>
+          </div>
         </div>
       </div>
       <div className="text-end">

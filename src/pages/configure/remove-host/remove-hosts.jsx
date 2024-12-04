@@ -13,6 +13,7 @@ const RemoveHosts = () => {
   React.useEffect(() => {
     dispatch(setupGetAllHosts());
   }, [dispatch]);
+  
   return (
     <div className="mb-4">
       {addHostDialog && (
@@ -26,7 +27,7 @@ const RemoveHosts = () => {
         <CircularProgress />
       ) : (
         <div>
-          <div className="d-flex justify-content-between mb-4 container">
+          <div className="d-flex gap-4 mb-4 container">
             <button
               className="btn btn-primary"
               onClick={() => setAddHostDialog(true)}
